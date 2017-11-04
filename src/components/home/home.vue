@@ -25,6 +25,29 @@
       <span id="btn_loginToPerCenter" class="wd btn_loginToPerCenter">我的</span>
     </div>
     <!--订餐结束/-->
+
+    <!--快捷菜单开始-->
+    <div class="kj-menu" id="kj-menu">
+      <div class='menuL none'>
+        <ul>
+            <li class="icon-bg01" classId="115" style="background-image:url(m.4008823823.com.cn/kfcmwos/img//iclasscn13_2017_04_12_15_52_14.png)">
+              <a href="javascript:void(0);">当季主打</a>
+            </li>
+            <li class="icon-bg01" classId="102" style="background-image:url(m.4008823823.com.cn/kfcmwos/img//iclasscn13_2017_07_27_14_36_26.png)">
+              <a href="javascript:void(0);">天天1元</a>
+            </li>
+            <li class="icon-bg01" classId="28" style="background-image:url(m.4008823823.com.cn/kfcmwos/img//iclasscn13_2017_09_07_18_11_48.png)">
+              <a href="javascript:void(0);">桶</a>
+            </li>
+            <li class="icon-bg01" classId="116" style="background-image:url(m.4008823823.com.cn/kfcmwos/img//iclasscn13_2017_04_13_09_36_09.png)">
+              <a href="javascript:void(0);">人气明星餐</a>
+            </li>
+            <li class="icon-bg01" classId="44" style="background-image:url(m.4008823823.com.cn/kfcmwos/img/iclasscn13_2016_02_25_15_19_30.png)">
+              <a href="javascript:void(0);">美味汉堡/卷</a>
+            </li>
+          </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -114,9 +137,6 @@ export default {
         margin: 0 0 0 13px
     @media screen and (min-width:370px)
       .carousel
-        margin: 0 auto;
-        overflow: hidden;
-        position: relative;
         width: 100%
         height: 142px
         .slide
@@ -130,46 +150,19 @@ export default {
               padding: 0 22px 0 22px
               border-radius: 7%
       .dc-box
-          width: 94%
-          height: 88px
-          float: left
-          border: 2px solid #e4e4e4
-          -webkit-border-radius: 5px
-          -moz-border-radius: 5px
-          border-radius: 5px
-          background-color: #FFF
-          margin-left: 2.5%
-          .ksdc
-            width: 50%
-            height: 100%
-            line-height: 88px
-            float: left
-            border-right: 1px solid #d9d9d9
-            font-size: 20px
-            color: #1a79d9
-            font-weight: 700
-            background: url(./img-03.png) 15px -172px no-repeat
-            text-align: left
-            text-indent: 22%
-            position: relative
-            background-size: 162px auto
-          .wd
-            background: url(./dc-icon02.png) 75% center no-repeat
-            background-size: 57px
-            text-indent: 10%
-            width: 49%
-            line-height: 88px
-            font-size: 20px
-            color: #d93035
-            font-weight: 700
-            text-align: left
-            height: 100%
-            float: left
+        height: 88px
+        .ksdc
+          line-height: 88px
+          font-size: 20px
+          background: url(./img-03.png) 15px -172px no-repeat
+        .wd
+          background: url(./dc-icon02.png) 75% center no-repeat
+          background-size: 57px
+          text-indent: 10%
+          line-height: 88px
+          font-size: 20px
     @media screen and (max-width:370px)
       .carousel
-        margin: 0 auto;
-        overflow: hidden;
-        position: relative;
         width: 280px
         height: 122px
         .slide
@@ -179,15 +172,28 @@ export default {
             position: absolute
             overflow: hidden;
             img
+              padding: 0 10px 0 0
               width: 275px
               height: 117px
-              border-radius: 5px;
-              box-shadow: 4px 4px 5px #e3e3e3
+      .dc-box
+        height: 75px
+        .ksdc
+          line-height: 75px
+          font-size: 18px
+          background: url(./img-03.png) 13px -337px no-repeat
+        .perCenter, .wd
+          line-height: 75px
+          font-size: 18px
+        .wd
+          background: url(./dc-icon02.png) 75% center no-repeat
+          background-size: 48px
+          text-indent: 8%
+        .perCenter
+          background: url(./dc-icon02.png) 92% center no-repeat
+          background-size: 48px
+          text-indent: 2%
     @media screen and (min-width:400px)
       .carousel
-        margin: 0 auto;
-        overflow: hidden;
-        position: relative;
         width: 331px
         height: 164px
         .slide
@@ -198,24 +204,74 @@ export default {
             img
               width: 326px
               height: 159px
-              border-radius: 5px;
-              box-shadow: 4px 4px 5px #e3e3e3
+              padding: 0 37px 0 0px
+      .dc-box
+        height: 88px
+        .ksdc
+          line-height: 88px
+          font-size: 20px
+          background: url(./img-03.png) 18px -172px no-repeat
+        .perCenter, .wd
+          line-height: 88px
+          font-size: 20px
+        .wd
+          background: url(./dc-icon02.png) 75% center no-repeat
+          background-size: 57px
+          text-indent: 10%
+        .perCenter
+          background: url(./dc-icon02.png) 92% center no-repeat
+          background-size: 57px
+          text-indent: 4%
     .carousel
-      margin-top: 5px
+      background: #fff
+      margin: 5px auto 0 auto
+      overflow: hidden
+      position: relative
       .clearfix1
         content: ''
         clear: both
         display: block
       .image-enter-active
         transform: translateX(0)
-        transition: all 1s ease
+        transition: all 0.5s ease
       .image-leave-active
         transform: translateX(-100%)
-        transition: all 1s ease
+        transition: all 0.5s ease
       .image-enter
         transform: translateX(100%)
       .image-leave
         transform: translateX(0)
     .dc-box
       margin-top: 10px
+      width: 94%
+      border: 2px solid #CCC
+      border-radius: 5px
+      background-color: #FFF
+      margin-left: 2.5%
+      .ksdc
+        width: 50%
+        height: 100%
+        float: left
+        border-right: 1px solid #d9d9d9
+        color: #1a79d9
+        font-weight: 700
+        text-align: left
+        text-indent: 22%
+        position: relative
+        background-size: 162px auto
+      .perCenter, .wd
+        width: 49%
+        color: #d93035
+        font-weight: 700
+        text-align: left
+        height: 100%
+        float: left
+    .kj-menu
+      width: 100%
+      height: 64px
+      border-top: 1px solid #e0dede
+      border-bottom: 1px solid #e0dede
+      background-color: #FFF
+      margin: 12px 0 0
+      padding: 5px 0
 </style>
