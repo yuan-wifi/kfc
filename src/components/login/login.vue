@@ -27,8 +27,8 @@
         <li v-if="nextData === true">
           <div class="input-box long">
               <span class="icon02 icon"></span>
-              <input can-value="uid1" id="pwd" name="pwd" type="password" placeholder="请输入密码" class="pwd inputbox">
-              <div class="complete-password-notsee"></div>
+              <input can-value="uid1" id="pwd" name="pwd" :type="password" placeholder="请输入密码" class="pwd inputbox">
+              <div class="pwd-eye" :class="{'complete-password-notsee': seepwd===false, 'complete-password-see': seepwd===true}" @click="seePwd"></div>
           </div>
         </li>             
         <div class="green">
@@ -72,7 +72,9 @@
       return {
         warninfo: 0,
         nextData: false,
-        errtel: true
+        errtel: true,
+        seepwd: false,
+        password: 'password'
       }
     },
     methods: {
@@ -108,6 +110,16 @@
           return false
         }
         return true
+      },
+      seePwd () {
+        let pwd = document.getElementById('pwd').value
+        if (this.seepwd) {
+          this.password = 'password'
+        } else {
+          this.password = 'string'
+        }
+        document.getElementById('pwd').value = pwd
+        this.seepwd = !this.seepwd
       }
     }
   }
@@ -211,12 +223,16 @@
                 width: 75%
               &.pwd
                 width: 55%
-            .complete-password-notsee
-              background: url(./passwordNotSee.png) center center no-repeat;
-              width: 15%;
-              float: right;
-              background-size: 25px 15px;
-              height: 50px;
+            .pwd-eye
+              float: right
+              height: 50px
+              width: 15%
+              &.complete-password-notsee
+                background: url(./passwordNotSee.png) center center no-repeat
+                background-size: 25px 15px 
+              &.complete-password-see
+                background: url(./passwordSee.png) center center no-repeat
+                background-size: 25px 15px 
         .green
           width: 84%
           height: 35px
