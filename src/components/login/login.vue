@@ -32,7 +32,7 @@
           </div>
         </li>             
         <div class="green">
-            <a class="ty  ty-js" @click="selectRemember" :class="{on:warninfo===-1}">记住我</a>
+            <a class="ty ty-js" @click="selectRemember" :class="{on:warninfo===-1}">记住我</a>
         </div>
       </ul>
       <a href="javascript:void(0);" class="login-form-next" @click="nextResult">下一步</a>
@@ -61,7 +61,6 @@
         <span>请输入正确的手机号</span>
       </div>
     </transition>
-
   </div>
 </template>
 
@@ -77,8 +76,30 @@
         password: 'password'
       }
     },
+    mounted () {
+      let options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+      }
+      this.$nextTick(() => {
+        navigator.geolocation.getCurrentPosition(this.success, this.error, options)
+      })
+    },
     methods: {
+      success (pos) {
+        let crd = pos.coords
+
+        console.log('Your current position is:')
+        alert('Latitude : ' + crd.latitude)
+        console.log('Longitude: ' + crd.longitude)
+        console.log('More or less ' + crd.accuracy + ' meters.')
+      },
+      error (err) {
+        console.warn('ERROR(' + err.code + '): ' + err.message)
+      },
       selectRemember () {
+        // 选择是否记住我
         if (this.warninfo === -1) {
           this.warninfo = 0
         } else if (this.warninfo === 0) {
@@ -86,6 +107,7 @@
         }
       },
       nextResult () {
+        // 下一步验证
         let mobile = parseInt(document.getElementById('telephone').value) || 0
         this.errtel = this.validatemobile(mobile)
         if (this.errtel === false) {
@@ -98,6 +120,7 @@
         }
       },
       validatemobile (mobile) {
+        // 验证手机号格式是否正确
         if (mobile.toString().length === 0) {
           return false
         }
@@ -112,11 +135,12 @@
         return true
       },
       seePwd () {
+        // 查看隐藏密码
         let pwd = document.getElementById('pwd').value
         if (this.seepwd) {
           this.password = 'password'
         } else {
-          this.password = 'string'
+          this.password = 'text'
         }
         document.getElementById('pwd').value = pwd
         this.seepwd = !this.seepwd
