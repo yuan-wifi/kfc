@@ -21,28 +21,28 @@
 
     <!--订餐开始-->
     <div class="dc-box">
-      <span id="btn_loginToMenu" class="ksdc btn_loginToMenu">开始订餐</span>
-      <span id="btn_loginToPerCenter" class="wd btn_loginToPerCenter">我的</span>
+      <span class="ksdc btn_loginToMenu">开始订餐</span>
+       <router-link class="wd btn_loginToPerCenter" tag="span" to="/login">我的</router-link>
     </div>
     <!--订餐结束/-->
 
     <!--快捷菜单开始-->
     <div class="kj-menu" id="kj-menu">
-      <div class='menuL none'>
+      <div class='menuL'>
         <ul>
-            <li class="icon-bg01" classId="115" style="background-image:url(m.4008823823.com.cn/kfcmwos/img//iclasscn13_2017_04_12_15_52_14.png)">
+            <li class="icon-bg01 i1">
               <a href="javascript:void(0);">当季主打</a>
             </li>
-            <li class="icon-bg01" classId="102" style="background-image:url(m.4008823823.com.cn/kfcmwos/img//iclasscn13_2017_07_27_14_36_26.png)">
+            <li class="icon-bg01 i2">
               <a href="javascript:void(0);">天天1元</a>
             </li>
-            <li class="icon-bg01" classId="28" style="background-image:url(m.4008823823.com.cn/kfcmwos/img//iclasscn13_2017_09_07_18_11_48.png)">
+            <li class="icon-bg01 i3">
               <a href="javascript:void(0);">桶</a>
             </li>
-            <li class="icon-bg01" classId="116" style="background-image:url(m.4008823823.com.cn/kfcmwos/img//iclasscn13_2017_04_13_09_36_09.png)">
+            <li class="icon-bg01 i4" >
               <a href="javascript:void(0);">人气明星餐</a>
             </li>
-            <li class="icon-bg01" classId="44" style="background-image:url(m.4008823823.com.cn/kfcmwos/img/iclasscn13_2016_02_25_15_19_30.png)">
+            <li class="icon-bg01 i5" >
               <a href="javascript:void(0);">美味汉堡/卷</a>
             </li>
           </ul>
@@ -274,4 +274,44 @@ export default {
       background-color: #FFF
       margin: 12px 0 0
       padding: 5px 0
+      .menuL
+        width: 100%
+        height: 100%
+        ul
+          width: 100%
+          height: 100%
+          display: flex
+          .icon-bg01
+            flex: 1
+            width: 20%
+            height: 100%
+            position: relative
+            background-size: 50px auto
+            overflow: hidden
+            background-repeat: no-repeat
+            background-position: center -6px
+            &.i1
+              background-image: url(i1.png)
+            &.i2
+              background-image: url(i2.png)
+            &.i3
+              background-image: url(i3.png)
+            &.i4
+              background-image: url(i4.png)
+            &.i5
+              background-image: url(i5.png)
+            a
+              width: 100%
+              height: 100%
+              font-size: 11px
+              color: #404040
+              font-weight: 700
+              top: 42px
+              left: 0
+              position: absolute
+              text-align: center
+              overflow: hidden
+              text-decoration: none
+              -webkit-tap-highlight-color: rgba(0,0,0,0);
+              -webkit-tap-highlight-color: transparent;
 </style>
